@@ -1,7 +1,7 @@
 //
 //  WeatherLocation.swift
 //  WeatherGift Demo
-//
+
 //  Created by Alex Golden on 10/6/20.
 
 import Foundation
