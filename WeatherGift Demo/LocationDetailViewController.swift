@@ -12,6 +12,7 @@ class LocationDetailViewController: UIViewController {
     @IBOutlet weak var placeLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    
     @IBOutlet weak var summaryLabel: UILabel!
     
     var weatherLocation: WeatherLocation!
