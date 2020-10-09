@@ -16,23 +16,25 @@ class LocationDetailViewController: UIViewController {
     @IBOutlet weak var summaryLabel: UILabel!
     
     var weatherLocation: WeatherLocation!
-    var weatherLocations: [WeatherLocation] = []
+   
+   var locationIndex = 0
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if weatherLocation == nil {
             weatherLocation = WeatherLocation(name: "current location", latitude: 0.0, longitude: 0.0)
-            weatherLocations.append(weatherLocation)
-        } else {
-            
+  
         }
-        
-        
 updateUserInterface()
-    
+
+        
     }
+    
     func updateUserInterface() {
+        let pageViewController = UIApplication.shared.windows.first!.rootViewController as! PageViewController
+        weatherLocation = pageViewController.weatherLocations[locationIndex]
         dateLabel.text = ""
         placeLabel.text = weatherLocation.name
         temperatureLabel.text = "--°"
@@ -41,13 +43,16 @@ updateUserInterface()
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! LocationListViewController
-        destination.weatherLocations = weatherLocations
+        let pageViewController = UIApplication.shared.windows.first!.rootViewController as! PageViewController
+        destination.weatherLocations = pageViewController.weatherLocations
     }
     
     @IBAction func unwindFromLocationListViewController(segue: UIStoryboardSegue){
         let source = segue.source as! LocationListViewController
-        weatherLocations = source.weatherLocations
-        weatherLocation = weatherLocations[source.selectedLocationIndex]
-        updateUserInterface()
+        locationIndex = source.selectedLocationIndex
+        let pageViewController = UIApplication.shared.windows.first!.rootViewController as! PageViewController
+        pageViewController.weatherLocations = source.weatherLocations
+        pageViewController.setViewControllers([pageViewController.createLocationDetailViewController(forPage: locationIndex)], direction: .forward, animated: false, completion: nil
+)
     }
 }
