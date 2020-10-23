@@ -21,6 +21,7 @@
 		F987C685252FE3380022696D /* LocationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F987C684252FE3380022696D /* LocationDetailViewController.swift */; };
 		F9D889E02534F366009E488B /* APIkeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D889DF2534F366009E488B /* APIkeys.swift */; };
 		F9D889E825351C1E009E488B /* WeatherDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D889E725351C1E009E488B /* WeatherDetail.swift */; };
+		F9FBD7C12543641A0004C065 /* DailyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9FBD7C02543641A0004C065 /* DailyTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		F987C684252FE3380022696D /* LocationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailViewController.swift; sourceTree = "<group>"; };
 		F9D889DF2534F366009E488B /* APIkeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIkeys.swift; sourceTree = "<group>"; };
 		F9D889E725351C1E009E488B /* WeatherDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetail.swift; sourceTree = "<group>"; };
+		F9FBD7C02543641A0004C065 /* DailyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 				F979294C25310036002BCB7D /* PageViewController.swift */,
 				F987C684252FE3380022696D /* LocationDetailViewController.swift */,
 				F92EE03B252D37D800CD6C3F /* LocationListViewController.swift */,
+				F9FBD7C02543641A0004C065 /* DailyTableViewCell.swift */,
 				F92EE03D252D37D800CD6C3F /* Main.storyboard */,
 				F92EE040252D37DC00CD6C3F /* Assets.xcassets */,
 				F92EE042252D37DC00CD6C3F /* LaunchScreen.storyboard */,
@@ -341,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9FBD7C12543641A0004C065 /* DailyTableViewCell.swift in Sources */,
 				F92EE03C252D37D800CD6C3F /* LocationListViewController.swift in Sources */,
 				F9D889E825351C1E009E488B /* WeatherDetail.swift in Sources */,
 				F9D889E02534F366009E488B /* APIkeys.swift in Sources */,
