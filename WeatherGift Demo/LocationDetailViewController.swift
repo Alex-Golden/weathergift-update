@@ -80,9 +80,11 @@ updateUserInterface()
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowList" {
         let destination = segue.destination as! LocationListViewController
         let pageViewController = UIApplication.shared.windows.first!.rootViewController as! PageViewController
         destination.weatherLocations = pageViewController.weatherLocations
+        }
     }
     
     @IBAction func unwindFromLocationListViewController(segue: UIStoryboardSegue){
