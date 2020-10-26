@@ -154,12 +154,26 @@ extension LocationDetailViewController: CLLocationManagerDelegate {
         case .restricted:
             self.oneButtonAlert(title: "location services denied", message: "location services are being restricted for this app")
         case .denied:
-            break
+            showAlertToPrivacySettings(title: "User has not enabled location services", message: "select settings below to device settings to enable location services for this app")
         case .authorizedAlways, .authorizedWhenInUse:
             locationManager.requestLocation()
         @unknown default:
             print("unknown case of status: \(status)")
         }
+    }
+    func showAlertToPrivacySettings(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        guard let settingsURL = URL(string: UIApplication.openSettingsURLString) else {
+            print("something went wrong with getting UIApplication.openSettingsURLString")
+            return
+        }
+        let settingsAction = UIAlertAction(title: "Settings", style: .default) {
+            (_)   in UIApplication.shared.open(settingsURL, options: [:], completionHandler: nil)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(settingsAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -180,6 +194,8 @@ extension LocationDetailViewController: CLLocationManagerDelegate {
             pageViewController.weatherLocations[self.locationIndex].longitude = currentLocation.coordinate.longitude
             self.updateUserInterface()
     }
+        
+        
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error \(error.localizedDescription) failed to get device location ")
     }
