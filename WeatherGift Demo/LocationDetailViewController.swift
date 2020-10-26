@@ -31,15 +31,18 @@ class LocationDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        clearUserInterface()
         tableView.delegate = self
         tableView.dataSource = self
         collectionView.delegate = self
         collectionView.dataSource = self
     
 updateUserInterface()
-
-        
     }
+    
     func clearUserInterface() {
         dateLabel.text = ""
         placeLabel.text = ""
